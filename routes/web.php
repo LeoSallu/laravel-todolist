@@ -20,18 +20,13 @@ use function PHPUnit\Framework\returnSelf;
 
 Route::get('/', function () {
     if(auth()->check()){
-        return redirect('admin.task.index');
+        return redirect()->route('admin.task.index');
     }
     else 
     return view('auth.login');
     
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-// Rotta utente autenticato 
 Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')

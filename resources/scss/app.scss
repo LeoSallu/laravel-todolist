@@ -1,1 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
+*{
+    font-family: 'Roboto', sans-serif;
+}
+main{
+    background-image: url(./imgs/todo-bg.jpg);
+}

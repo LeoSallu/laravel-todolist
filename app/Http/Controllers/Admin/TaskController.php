@@ -72,7 +72,7 @@ class TaskController extends Controller
     public function edit(Task $task)
     {
         if ($task->user_id == Auth::user()->id) {
-            return view('admin.tasks.edit', compact($task));
+            return view('admin.tasks.edit',compact('task'));
         } else redirect()->route('admin.task.index')->withErrors("Task not found");
     }
 
@@ -89,7 +89,7 @@ class TaskController extends Controller
         $data = $request->validated();
         $task->update($data);
         $task->save();
-        return view('admin.tasks.index')->with('message', "The task '$taskSelected' been edit successfully");
+        return redirect()->route('admin.task.show',$task->id)->with('message', "The task '$taskSelected' been edit successfully");
     }
 
     /**
