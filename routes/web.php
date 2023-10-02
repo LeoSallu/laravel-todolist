@@ -19,7 +19,7 @@ use function PHPUnit\Framework\returnSelf;
 */
 
 Route::get('/', function () {
-    if(auth->check()){
+    if(auth()->check()){
         return redirect('admin.task.index');
     }
     else 
