@@ -19,7 +19,12 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::where('user_id', '=', Auth::id())->get();
-
+        foreach($tasks as $task){
+            $dateTime= $task->date;
+            $formatDate= date('Y-m-d',strtotime($dateTime));
+            $task->date=$formatDate;
+    
+        }
 
         return view('admin.tasks.index', compact('tasks'));
     }
@@ -45,8 +50,9 @@ class TaskController extends Controller
         $data = $request->validated();
         $newTask = new Task();
         $newTask->fill($data);
+        $newTask->user_id=Auth::id();
         $newTask->save();
-        return view('admin.tasks.index');
+        return redirect()->route('admin.task.show',$newTask->id);
     }
 
     /**
@@ -57,7 +63,11 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
+        $dateTime= $task->date;
+        $formatDate= date('Y-m-d',strtotime($dateTime));
+        $task->date=$formatDate;
         if ($task->user_id == Auth::user()->id) {
+
             return view('admin.tasks.show', compact('task'));
         }
         else redirect()->route('admin.task.index')->withErrors("Task not found");

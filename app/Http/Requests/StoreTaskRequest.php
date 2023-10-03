@@ -26,7 +26,7 @@ class StoreTaskRequest extends FormRequest
         return [
             'title'=>'required|string|min:4|max:255',
             'description'=>'nullable|string',
-            'date'=>'nullable|date|after_or_equal:now',
+            'date'=>'nullable|date|after_or_equal:today',
             'completed'=>'required|boolean'
         ];
     }

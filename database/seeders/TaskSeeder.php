@@ -23,7 +23,7 @@ class TaskSeeder extends Seeder
             $newTask->user_id=$user->id;
             $newTask->title = $faker->word();
             $newTask->description = $faker->sentence();
-            $newTask->date = $faker->dateTimeInInterval('Y-m-d', '+1 week');
+            $newTask->date = $faker->dateTimeInInterval('now', '+1 week');
             $newTask->completed = 1;
             $newTask->save();
         }

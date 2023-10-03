@@ -3,7 +3,9 @@
 
 @section('content')
     <div class="container min-vh-100 d-flex flex-column">
+        @if (count($tasks) > 0)
         <a href="{{ route('admin.task.create') }}" class="btn btn-light my-3 align-self-end">Create Task</a>
+        @endif
         @if ($errors->any())
             <div>
                 @foreach ($errors->all() as $error)
@@ -18,11 +20,10 @@
                 @foreach ($tasks as $task)
                     <div class="col mb-3 p-1">
                         <div class="card h-100">
-                            <div class="card-body">
+                            <div class="card-body d-flex flex-column justify-content-between">
                                 <h5 class="card-title">Task title: <span class="fw-bold">{{ $task->title }}</span></h5>
                                 @if ($task->description)
-                                    <p class="card-text"><span
-                                            class="fs-6 fw-bold">Description:</span><br>{{ $task->description }}</p>
+                                    <p class="card-text"><span class="fs-6 fw-bold">Description:</span><br>{{ $task->description }}</p>
                                 @endif
                                 @if ($task->date)
                                     <p class="card-text"><span class="fs-6 fw-bold">Expires: </span>{{ $task->date }}</p>
