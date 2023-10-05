@@ -3,9 +3,9 @@
 
 @section('content')
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="card p-2" style="min-height:14rem">
+        <div id="show" class="card p-2" style="min-height:14rem">
             <div class="card-body">
-                <h5 class="card-title fs-3">Task title: <span class="fw-normal">{{ $task->title }}</span></h5>
+                <h5 class="card-title fs-3"><span class="fw-normal">{{ $task->title }}</span></h5>
                 @if ($task->description)
                     <p class="card-text"><strong class="fs-6">Description:</strong><br>{{ $task->description }}</p>
                 @endif

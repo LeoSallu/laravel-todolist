@@ -4,7 +4,10 @@
 @section('content')
     <div class="container min-vh-100 d-flex flex-column">
         @if (count($tasks) > 0)
-        <a href="{{ route('admin.task.create') }}" class="btn btn-light my-3 align-self-end">Create Task</a>
+        <div class="btn-container align-self-end">
+            <a href="{{ url()->previous()}}" class="btn btn-light my-3 align-self-end">Back</a>
+            <a href="{{ route('admin.task.create') }}" class="btn btn-light my-3">Create Task</a>
+        </div>
         @endif
         @if ($errors->any())
             <div>
@@ -21,7 +24,7 @@
                     <div class="col mb-3 p-1">
                         <div class="card h-100">
                             <div class="card-body d-flex flex-column justify-content-between">
-                                <h5 class="card-title">Task title: <span class="fw-bold">{{ $task->title }}</span></h5>
+                                <h5 class="card-title"><span class="fw-bold">{{ $task->title }}</span></h5>
                                 @if ($task->description)
                                     <p class="card-text"><span class="fs-6 fw-bold">Description:</span><br>{{ $task->description }}</p>
                                 @endif
@@ -79,6 +82,7 @@
                 <div class="container mt-4">
                     <h2 class="text-light">No Tasks create new one</h2>
                     <a href="{{ route('admin.task.create') }}" class="btn btn-light">Create Task</a>
+                    <a href="{{ url()->previous() }}" type="button" class="btn btn-outline-secondary">Back</a>
                 </div>
             @endif
         </div>

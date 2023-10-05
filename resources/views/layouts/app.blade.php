@@ -63,7 +63,9 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item"
-                                        href="{{ route('admin.task.index') }}">{{ __('Task List') }}</a>
+                                        href="{{ route('admin.task.index') }}">{{ __('Task List') }}
+                                    </a>
+                                    <a href="{{route('admin.dashboard')}}" class="dropdown-item">{{__('Dashboard')}}</a>
                                     <a class="dropdown-item" href="{{ route('admin.profile.edit') }}">{{ __('Profile') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();

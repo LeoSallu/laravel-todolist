@@ -5,3 +5,35 @@
 main{
     background-image: url(./imgs/todo-bg.jpg);
 }
+.container{
+    .row{
+        .card:first-child{
+            .card-body{
+                .todo-title{
+                    background-color:#FFFF99;
+                    border: 1px solid #FFFF99;
+                }
+            }
+        }
+        .card:last-child{
+            .card-body{
+                .todo-title{
+                    background-color:#00ff00;
+                    border: 1px solid #00ff00;
+
+                }
+            }
+        }
+    }
+}
+.todo-title{
+    border-bottom: 1px solid black;
+}
+.card-container{
+    max-height:300px;
+    overflow-y: scroll;
+}
+#show{
+    min-width:300px;
+}
+

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\TaskController;
 use Illuminate\Support\Facades\Auth;
@@ -19,18 +20,17 @@ use function PHPUnit\Framework\returnSelf;
 */
 
 Route::get('/', function () {
-    if(auth()->check()){
+    if (auth()->check()) {
         return redirect()->route('admin.task.index');
-    }
-    else 
-    return view('auth.login');
-    
+    } else
+        return view('auth.login');
 });
 
 Route::middleware('auth')
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
+        Route::get('/dashboard', [DashboardController::class,'dashboard'])->name('dashboard');
         Route::resource('/task', TaskController::class);
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
