@@ -15,7 +15,7 @@
                                 <a href="{{ route('admin.task.show', $task->id) }}" class="p-2 card-text d-flex justify-content-between border-bottom text-decoration-none text-dark">
                                     <p class="ms-2"><span>{{ $task->date }}</span><span class="ms-3 fw-bold">{{ $task->title }}</span></p>
                                     @if ($task->description)
-                                        <p class="me-2">{{ Str::limit($task->description, 40) }}</p>
+                                        <p class="me-2 d-none d-md-block">{{ Str::limit($task->description, 40) }}</p>
                                     @endif
                                 </a>
                             @endforeach
@@ -30,7 +30,7 @@
                                 <a href="{{ route('admin.task.show', $task->id) }}" class="my-2 card-text d-flex justify-content-between border-bottom text-decoration-none text-dark">
                                     <p class="ms-2"><span>{{ $task->date }}</span><span class="ms-3 fw-bold">{{ $task->title }}</span></p>
                                     @if ($task->description)
-                                        <p class="me-2">{{ Str::limit($task->description, 40) }}</p>
+                                        <p class="me-2 d-none d-md-block">{{ Str::limit($task->description, 40) }}</p>
                                     @endif
                                 </a>
                             @endforeach
