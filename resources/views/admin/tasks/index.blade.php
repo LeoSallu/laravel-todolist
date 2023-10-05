@@ -5,7 +5,6 @@
     <div class="container min-vh-100 d-flex flex-column">
         @if (count($tasks) > 0)
         <div class="btn-container align-self-end">
-            <a href="{{ url()->previous()}}" class="btn btn-light my-3 align-self-end">Back</a>
             <a href="{{ route('admin.task.create') }}" class="btn btn-light my-3">Create Task</a>
         </div>
         @endif
@@ -82,7 +81,6 @@
                 <div class="container mt-4">
                     <h2 class="text-light">No Tasks create new one</h2>
                     <a href="{{ route('admin.task.create') }}" class="btn btn-light">Create Task</a>
-                    <a href="{{ url()->previous() }}" type="button" class="btn btn-outline-secondary">Back</a>
                 </div>
             @endif
         </div>

@@ -29,7 +29,7 @@
                                     placeholder="Insert Task description">
                             </div>
                             <div class="mb-3">
-                                <label for="date" class="form-label fw-bold">Description of the Task</label>
+                                <label for="date" class="form-label fw-bold">Expiration date of the Task</label>
                                 <input type="date" class="form-control" id="date" name="date"
                                     value="{{ old('date', date('Y-m-d')) }}">
                             </div>

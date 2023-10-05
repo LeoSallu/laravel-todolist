@@ -35,7 +35,7 @@ class TaskCreatedMail extends Mailable
     {
         $name=$this->task->user->name;
         $subject = 'New Task created !';
-        $body = "Hi $name, a new task has been created.";
+        $body = "Hi '$name', a new task has been created.";
         return $this->view('mail')
             ->text('mail')
             ->from('todolist@reminder.com')

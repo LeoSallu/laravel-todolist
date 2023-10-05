@@ -34,7 +34,7 @@ class TaskUpdatedMail extends Mailable
     {
         $name=$this->task->user->name;
         $taskTitle=$this->task->title;
-        $subject = "Your Task $taskTitle has been updated !";
+        $subject = "Your Task '$taskTitle' has been updated !";
         $body = "Hi $name, your Task $taskTitle has been updated.";
         return $this->view('mail')
             ->text('mail')

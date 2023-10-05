@@ -29,7 +29,7 @@ class TaskDeletedMail extends Mailable
     {
         $name=$this->task->user->name;
         $taskTitle=$this->task->title;
-        $subject = "Your Task $taskTitle has been deleted !";
+        $subject = "Your Task '$taskTitle' has been deleted !";
         $body = "Hi $name, your Task $taskTitle has been deleted.";
         return $this->view('mail')
             ->text('mail')
