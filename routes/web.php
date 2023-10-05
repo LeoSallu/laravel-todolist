@@ -21,7 +21,7 @@ use function PHPUnit\Framework\returnSelf;
 
 Route::get('/', function () {
     if (auth()->check()) {
-        return redirect()->route('admin.task.index');
+        return redirect()->route('admin.dashboard');
     } else
         return view('auth.login');
 });

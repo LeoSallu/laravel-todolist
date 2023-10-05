@@ -18,7 +18,7 @@
                     <p class="card-text fw-bold">Completed<i class="ms-2 fa-solid fa-check fs-3 text-success"></i></p>
                 @endif
                 <div class="d-flex">
-                    <a href="{{ route('admin.task.index') }}" class="btn text-light" style="background-color:#a3c58f"><i
+                    <a href="{{ url()->previous() }}" class="btn text-light" style="background-color:#a3c58f"><i
                             class="fa-solid fa-arrow-left-long"></i></a>
                     <a class="ms-2" href="{{ route('admin.task.edit', $task) }}"><i
                             class="ms-2 fa-solid fa-pen-to-square fs-2 text-warning"></i></a>
