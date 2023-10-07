@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4">
-    <div class="row justify-content-center">
+<div class="container vh-100">
+    <div class="row justify-content-center p-3">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Confirm Password') }}</div>
@@ -27,7 +27,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 row mb-0">
+                        <div class="mb-4 row ">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Confirm Password') }}

@@ -17,7 +17,7 @@
                 <h2 class="text-light">Your Task</h2>
                 <div class="card p-2" style="width:24rem">
                     <div class="card-body">
-                        <h5 class="card-title fs-3">Task title: <span class="fw-normal">{{ $task->title }}</span></h5>
+                        <h5 class="card-title fs-3"><span class="fw-normal">{{ $task->title }}</span></h5>
                         @if ($task->description)
                             <p class="card-text"><span class="fs-6 fw-bold">Description:</span><br>{{ $task->description }}
                             </p>
