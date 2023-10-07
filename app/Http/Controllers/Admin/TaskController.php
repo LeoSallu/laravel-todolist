@@ -8,11 +8,13 @@ use App\Events\TaskUpdated;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Jobs\MailCreateJob;
+use App\Jobs\MailDeleteJob;
+use App\Jobs\MailUpdateJob;
 use App\Mail\TaskCreatedMail;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class TaskController extends Controller
@@ -58,8 +60,7 @@ class TaskController extends Controller
         $newTask->fill($data);
         $newTask->user_id=Auth::id();
         $newTask->save();
-        event(new TaskCreated($newTask));
-        
+        dispatch(new MailCreateJob($newTask));
         // $email=($newTask->user->email);
       
         // if(is_string($email)){
@@ -115,7 +116,8 @@ class TaskController extends Controller
         $data = $request->validated();
         $task->update($data);
         $task->save();
-        event(new TaskUpdated($task));
+        // event(new TaskUpdated($task));
+        dispatch(new MailUpdateJob($task));
         return redirect()->route('admin.task.show',$task->id)->with('message', "The task '$taskSelected' has been edit successfully");
     }
 
@@ -129,7 +131,8 @@ class TaskController extends Controller
     {
         $taskSelected = $task->title;
         $task->delete();
-        event(new TaskDeleted($task));
+        // event(new TaskDeleted($task));
+        dispatch(new MailDeleteJob($task));
         return redirect()->route('admin.task.index')->with('message', "Task $taskSelected has been deleted successfully ");
     }
 }
